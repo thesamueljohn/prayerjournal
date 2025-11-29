@@ -1,0 +1,1020 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>December Devotional Manager</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f0f2f5; }
+        .whatsapp-green { background-color: #25D366; }
+        .whatsapp-green-hover:hover { background-color: #128C7E; }
+    </style>
+</head>
+<body class="bg-gray-100 min-h-screen">
+
+    <div class="max-w-3xl mx-auto p-4">
+        <!-- Header -->
+        <header class="bg-white rounded-lg shadow-md p-6 mb-6 text-center border-t-4 border-green-500">
+            <h1 class="text-2xl font-bold text-gray-800">December Devotional Scheduler</h1>
+            <p class="text-gray-600 mt-2">Automated formatting for WhatsApp sharing</p>
+            <div class="mt-4 text-sm text-gray-500">
+                Current Date: <span id="currentDate" class="font-semibold text-green-600"></span>
+            </div>
+        </header>
+
+        <!-- Devotional List -->
+        <div id="devotionalList" class="space-y-6">
+            <!-- Items will be injected here via JS -->
+        </div>
+
+        <div class="text-center mt-8 text-gray-500 text-sm pb-8">
+            Generated for automated sharing
+        </div>
+    </div>
+
+    <script>
+        // The raw text content from the devotional file
+        const rawDevotionalText = `
+*🔰 STRATEGIC LEVEL PRAYER JOURNAL*
+
+*CALLING THINGS THAT BE NOT (Romans 4:17)*
+
+*🗓 MONDAY, DECEMBER 1, 2025*
+
+*Title:* Calling Things Into Manifestation
+
+*Scripture:* Romans 4:17
+
+*Expanded Reflection:* God’s creative system has never changed. In the beginning He spoke, not wished. Words remain the highest tools of creation and alteration. God shows us that visible circumstances bow to invisible realities activated through the mouth of a believer.
+
+Life will always present situations that contradict God’s promises. But the spiritual man speaks into those situations—not describing them, but CREATING the will of God in their place. Calling forth health in sickness, abundance in lack, restoration in brokenness is not pretending — it is partnering with Heaven’s legal system.
+
+*Ancient Biblical Example:* Abraham, called “father of many nations” before Isaac was conceived. God altered his identity with WORDS first, then manifestation followed.
+
+*Testimony:* A woman with cancer of the throat (from your document) was healed when believers kept speaking life over her. The unseen WORD nullified the seen tumor.
+
+*Prayer:* Father, align my tongue with Heaven today. Baptize my mouth with creative authority. Let every dead, stagnant, or negative condition yield to Your Word in my mouth. Amen.
+
+*Declarations:*
+- I call forth the will of God into every area of my life.
+- My words shape my future.
+- I speak abundance, healing, and restoration into existence.
+- What I declare today becomes my reality.
+
+
+
+
+*🔰 STRATEGIC LEVEL PRAYER JOURNAL*
+
+*CALLING THINGS THAT BE NOT (Romans 4:17)*
+
+*🗓 TUESDAY, DECEMBER 2, 2025*
+
+*Title:* God’s Strategy for Victory
+
+*Scripture:* 1 Corinthians 1:27–28
+
+*Expanded Reflection:* God uses the unseen to nullify the seen. You cannot feel faith, touch faith, or smell faith—yet faith is the most powerful force on earth. Everything that contradicts your destiny can be cancelled by the unseen weapons of God activated through speaking.
+
+God reduces visible problems to zero using invisible power. Learn to stop amplifying what is visible and start empowering what is eternal.
+
+*Ancient Biblical Example:* Moses repeatedly SPOKE to Pharaoh, and each declaration dismantled a visible empire.
+
+*Testimony:* A man with cancer of the mouth received healing when brethren spoke life to him at the hospital—proof that the invisible triumphs over the visible.
+
+*Prayer:* Lord, teach my spirit to trust invisible realities more than visible contradictions. Strengthen my confidence in Your Word. Amen.
+
+*Declarations:*
+- I operate with God’s strategy.
+- The unseen power of God nullifies every visible challenge.
+- Every stubborn problem bows to the Word in my mouth.
+
+
+
+
+*🔰 STRATEGIC LEVEL PRAYER JOURNAL*
+
+*CALLING THINGS THAT BE NOT (Romans 4:17)*
+
+*🗓 WEDNESDAY, DECEMBER 3, 2025*
+
+*Title:* Speak Your Healing
+
+*Scripture:* 1 Peter 2:24
+
+*Expanded Reflection:* Faith does not deny sickness; it denies sickness the right to remain. The moment you shift your language from describing pain to declaring healing, the miracle begins.
+
+Your body was designed to respond to spiritual authority. When you speak healing, your cells, tissues, blood, and organs hear it. Healing begins internally before it manifests externally.
+
+*Ancient Biblical Example:* The Shunammite woman said, “It is well,” while her son lay dead — she spoke the end result, not the crisis.
+
+*Testimony:* Multiple cancer cases were reversed by speaking the Word — proving that the Word is medicine.
+
+*Prayer:* Jesus, I receive Your healing virtue. Let every part of my body align with divine health. Heal, restore, and revive me. Amen.
+
+*Declarations:*
+- My body is healed by the stripes of Jesus.
+- Life flows into every organ and system.
+- I speak health, strength, vitality, and wholeness.
+
+
+
+
+*🔰 STRATEGIC LEVEL PRAYER JOURNAL*
+
+*CALLING THINGS THAT BE NOT (Romans 4:17)*
+
+*🗓 THURSDAY, DECEMBER 4, 2025*
+
+*Title:* Call the Solution, Not the Problem
+
+*Scripture:* Mark 11:23
+
+*Expanded Reflection:* Talking ABOUT the problem feeds it. Talking TO the problem destroys it. Mature believers speak in the direction they want their life to go. Life moves by the dominion of declarations.
+
+Your words are steering wheels — you either drive toward miracles or toward stagnation. Train your mouth to produce solutions, not echo symptoms.
+
+*Ancient Biblical Example:* Jesus spoke TO the fig tree — He didn’t consult the disciples about it.
+
+*Testimony:* A financially stranded family began speaking abundance daily. Within weeks, supernatural favor opened employment, debt cancellation, and business doors.
+
+*Prayer:* Lord, purify my speech. Let my tongue be a prophetic instrument that calls forth breakthrough. Amen.
+
+*Declarations:*
+- I speak to every mountain — be removed!
+- My words are powerful weapons.
+- I speak the solution until it manifests.
+
+
+
+
+*🔰 STRATEGIC LEVEL PRAYER JOURNAL*
+
+*CALLING THINGS THAT BE NOT (Romans 4:17)*
+
+*🗓 FRIDAY, DECEMBER 5, 2025*
+
+*Title:* Denying the Problem’s Right to Exist
+
+*Scripture:* Romans 8:11
+
+*Expanded Reflection:* The Spirit that raised Jesus from the dead lives in you — not as a feeling, but as resurrection power. Dead areas come alive when the believer SPEAKS resurrection.
+
+Denying a problem’s right to exist is not rebellion; it is spiritual jurisdiction. You have legal authority to veto sickness, delay, failure, fear, and oppression.
+
+*Ancient Biblical Example:* Ezekiel prophesied to dry bones — and they obeyed.
+
+*Testimony:* A man whose limbs were paralyzed began speaking life over his body daily. Strength gradually returned until he walked without assistance.
+
+*Prayer:* Holy Spirit, breathe resurrection life into every dying area of my destiny. Revive what looked impossible. Amen.
+
+*Declarations:*
+- Every dead thing in my life receives life now.
+- The Spirit of resurrection works in me.
+- No negative condition has a right to remain.
+
+
+
+
+*🔰 STRATEGIC LEVEL PRAYER JOURNAL*
+
+*CALLING THINGS THAT BE NOT (Romans 4:17)*
+
+*🗓 SATURDAY, DECEMBER 6, 2025*
+
+*Title:* Using God’s Promises Correctly
+
+*Scripture:* 2 Peter 1:3–4
+
+*Expanded Reflection:* Promises do not manifest automatically—they must be called forth. Nothing in the Kingdom is automated; everything is voice-activated.
+
+The promises are already given, but speech is the key that unlocks them. If you don’t declare it, you cannot experience it.
+
+*Ancient Biblical Example:* Caleb declared strength and youthfulness at 85—and received his inheritance.
+
+*Testimony:* A barren couple spoke God’s promise daily. After years of delay, they conceived and carried a healthy baby.
+
+*Prayer:* Lord, open my eyes to the promises already given to me. Help me call them forth boldly. Amen.
+
+*Declarations:*
+- I possess every promise of God.
+- I declare abundance, favor, and dominion.
+- Everything God has spoken over me manifests now.
+
+
+
+
+*🔰 STRATEGIC LEVEL PRAYER JOURNAL*
+
+*CALLING THINGS THAT BE NOT (Romans 4:17)*
+
+*🗓 SUNDAY, DECEMBER 7, 2025*
+
+*Title:* Words That Nullify the Seen
+
+*Scripture:* 1 Corinthians 1:27–28
+
+*Expanded Reflection:* The unseen dominates the seen. Your words, filled with faith, are superior to any visible circumstance. When you speak God’s Word, you rewrite the reality around you.
+
+Your mouth is God’s instrument to nullify barrenness, stagnation, rejection, sickness, and delay.
+
+*Ancient Biblical Example:* God nullified Sarah’s barrenness by DECLARING her fruitful.
+
+*Testimony:* A business that was collapsing turned around after the owner began declaring supernatural customers and profit.
+
+*Prayer:* Father, let Your unseen power override every visible contradiction. Amen.
+
+*Declarations:*
+- I nullify every negative manifestation.
+- The unseen controls the seen in my life.
+- My circumstances bow to my declarations.
+
+
+
+
+*🔰 STRATEGIC LEVEL PRAYER JOURNAL*
+
+*CALLING THINGS THAT BE NOT (Romans 4:17)*
+
+*🗓 MONDAY, DECEMBER 8, 2025*
+
+*Title:* Speak as Though It Already Exists
+
+*Scripture:* Romans 4:17
+
+*Expanded Reflection:* Faith speaks in past tense about future events. You must speak what God said—not what you feel.
+
+Every miracle begins with a declaration that sounds unreasonable. Faith-filled speech unlocks divine timing, supernatural provision, and creative miracles.
+
+*Ancient Biblical Example:* Elisha declared abundance in the midst of famine. His words shifted the economy.
+
+*Testimony:* Someone in deep debt declared “I am debt-free” daily. Within months, unexpected streams paid everything off.
+
+*Prayer:* Lord, strengthen my faith to speak what You said, not what I see. Amen.
+
+*Declarations:*
+- What God promised is already mine.
+- I speak the end result with boldness.
+- My faith-filled words create new realities.
+
+
+
+
+*🔰 STRATEGIC LEVEL PRAYER JOURNAL*
+
+*CALLING THINGS THAT BE NOT (Romans 4:17)*
+
+*🗓 TUESDAY, DECEMBER 9, 2025*
+
+*Title:* God’s Word Never Returns Void
+
+*Scripture:* Isaiah 55:10–11
+
+*Expanded Reflection:* When you speak the Word, it becomes a divine messenger on assignment. It cannot return empty. The Word travels, works, rearranges, uproots, builds, restores, and establishes.
+
+Words released in faith keep working even when you sleep.
+
+*Ancient Biblical Example:* Noah believed and acted on God’s Word long before evidence appeared.
+
+*Testimony:* A woman declared “my son is delivered” until her addicted son was supernaturally restored.
+
+*Prayer:* Lord, let every word I speak carry divine fire and power. Amen.
+
+*Declarations:*
+- God’s Word in my mouth is unstoppable.
+- Everything I speak in alignment with Scripture must manifest.
+- Nothing spoken by God over my life will fail.
+
+
+
+
+*🔰 STRATEGIC LEVEL PRAYER JOURNAL*
+
+*CALLING THINGS THAT BE NOT (Romans 4:17)*
+
+*🗓 WEDNESDAY, DECEMBER 10, 2025*
+
+*Title:* Speak Your Desired Future
+
+*Scripture:* Hebrews 11:7
+
+*Expanded Reflection:* Your future does not respond to wishes — it responds to declarations. Noah shaped his future by acting on divine instruction even without visible proof.
+
+Every time you speak what God said, you construct your tomorrow. Destinies are built one declaration at a time.
+
+*Ancient Biblical Example:* Noah built his future by obeying and speaking before rain appeared.
+
+*Testimony:* A young man declared, “I will travel the nations for Christ,” though broke and unknown. Doors opened and today he ministers internationally.
+
+*Prayer:* Father, empower my voice to build a glorious future. Cause my words to create divine order. Amen.
+
+*Declarations:*
+- My future obeys my prophetic utterances.
+- I speak divine opportunities, favor, and open doors.
+- My tomorrow is glorious because my words build it today.
+
+
+
+
+*🔰 STRATEGIC LEVEL PRAYER JOURNAL*
+
+*CALLING THINGS THAT BE NOT (Romans 4:17)*
+
+*🗓 THURSDAY, DECEMBER 11, 2025*
+
+*Title:* Obstacles to Faith Speech
+
+*Scripture:* James 1:6–8
+
+*Expanded Reflection:* Faith is a spiritual law. It works consistently, but doubt breaks its flow. A double-minded person oscillates between belief and fear, and this instability neutralizes spiritual authority. The heart and the mouth must agree. What you speak must be reinforced by inner conviction. The moment you begin to stagger, the power in your words weakens. God wants unwavering, steady, anchored faith that speaks and refuses to contradict itself.
+
+*Ancient Biblical Example:* Zachariah doubted Gabriel’s message. His unbelief shut his mouth until the promise matured.
+
+*Testimony:* A woman believing for employment confessed faith but privately feared failure. Once she repented of doubt and aligned her heart and confession, she received two job offers within a week.
+
+*Prayer:* Lord, remove every seed of doubt. Anchor my heart in unwavering faith. Let my mind, heart, and mouth align with Your promises. Amen.
+
+*Declarations:*
+- My faith is steady, unwavering, and bold.
+- Doubt has no place in my spirit.
+- My declarations are filled with conviction and power.
+
+
+
+
+*🔰 STRATEGIC LEVEL PRAYER JOURNAL*
+
+*CALLING THINGS THAT BE NOT (Romans 4:17)*
+
+*🗓 FRIDAY, DECEMBER 12, 2025*
+
+*Title:* The Power Blocker: Unforgiveness
+
+*Scripture:* Mark 11:25
+
+*Expanded Reflection:* Unforgiveness is the greatest saboteur of faith. It clogs the spiritual pipeline. The enemy uses offense to disconnect believers from divine flow. Holding grudges is not emotional—it is spiritual warfare. Forgiveness restores your authority and opens the heavens over your life.
+
+*Ancient Biblical Example:* Joseph forgave his brothers and stepped into the palace prepared for him.
+
+*Testimony:* A woman who suffered years of stagnation forgave the people who hurt her. Within 30 days, she received a promotion she had pursued for years.
+
+*Prayer:* Father, I release every offense. Cleanse my heart from bitterness. Restore the free flow of Your power in my life. Amen.
+
+*Declarations:*
+- I am free from offense and bitterness.
+- My heart is clear, and my faith flows unhindered.
+- I walk in love and carry divine authority.
+
+
+
+
+*🔰 STRATEGIC LEVEL PRAYER JOURNAL*
+
+*CALLING THINGS THAT BE NOT (Romans 4:17)*
+
+*🗓 SATURDAY, DECEMBER 13, 2025*
+
+*Title:* Disharmony Blocks Blessings
+
+*Scripture:* 1 John 3:22–24
+
+*Expanded Reflection:* Where there is strife, the flow of power stops. Harmony is the environment for miracles. Many believers are faithful in prayer but careless with relationships. God weighs relationships more seriously than we do. Miracles flourish where peace and unity live. Disharmony in the home, team, or church becomes a spiritual traffic jam. Fixing relationships opens doors to supernatural manifestations.
+
+*Ancient Biblical Example:* The early church walked in one accord and experienced unstoppable miracles, growth, and favor.
+
+*Testimony:* A couple wrestling with constant conflict saw no financial breakthrough for years. When they restored unity, divine favor opened a major business contract within weeks.
+
+*Prayer:* Lord, give me the grace to walk in unity, peace, and humility. Remove every root of discord. Amen.
+
+*Declarations:*
+- I am an ambassador of peace and unity.
+- Disharmony has no ground in my home or relationships.
+- Wherever I go, harmony follows, and blessings flow.
+
+
+
+
+*🔰 STRATEGIC LEVEL PRAYER JOURNAL*
+
+*CALLING THINGS THAT BE NOT (Romans 4:17)*
+
+*🗓 SUNDAY, DECEMBER 14, 2025*
+
+*Title:* Faith Works Through Love
+
+*Scripture:* Galatians 5:6
+
+*Expanded Reflection:* Love is the engine of faith. Without love, faith stalls. When the heart is full of love, heaven backs your words. Love purifies motives, softens the heart, attracts divine assistance, and empowers declarations. Love is not emotional—it is spiritual currency.
+
+*Ancient Biblical Example:* Jesus was moved with compassion before performing miracles. Compassion opened the channel for power.
+
+*Testimony:* A man praying for a family member’s healing saw no change until he replaced irritation with compassion. The healing manifested shortly after.
+
+*Prayer:* Holy Spirit, flood my heart with divine love. Let compassion fuel my prayers and declarations. Amen.
+
+*Declarations:*
+- My faith is powered by divine love.
+- Compassion flows through me and produces miracles.
+- My words carry grace, love, and supernatural power.
+
+
+
+
+*🔰 STRATEGIC LEVEL PRAYER JOURNAL*
+
+*CALLING THINGS THAT BE NOT (Romans 4:17)*
+
+*🗓 MONDAY, DECEMBER 15, 2025*
+
+*Title:* Angels—Helpers of Destiny
+
+*Scripture:* Hebrews 1:14
+
+*Expanded Reflection:* Angels are assigned to believers to assist, protect, guide, and strengthen. They respond to the Word of God spoken in faith. Just as armies have ranks and assignments, heaven has angelic forces designated to your destiny. You are not alone—angelic presence surrounds you.
+
+*Ancient Biblical Example:* Angels delivered Lot from Sodom and ensured his family’s safety.
+
+*Testimony:* A missionary stranded during a violent attack testified that invisible protection shielded him. Gunmen fled suddenly as though chased—angelic intervention was later confirmed by multiple witnesses.
+
+*Prayer:* Father, thank You for angelic help. Let Your angels surround, guide, and strengthen me. Activate angelic ministry over every area of my life. Amen.
+
+*Declarations:*
+- I am surrounded by ministering angels.
+- Angels enforce God’s promises concerning me.
+- No evil can overpower the forces assigned to my destiny.
+
+
+
+
+*🔰 STRATEGIC LEVEL PRAYER JOURNAL*
+
+*CALLING THINGS THAT BE NOT (Romans 4:17)*
+
+*🗓 TUESDAY, DECEMBER 16, 2025*
+
+*Title:* Angelic Assistance in Dangerous Times
+
+*Scripture:* Psalm 91:11
+
+*Expanded Reflection:* We live in violent days—just as described in your document—but angels remain God’s security system for His people. Every believer has unseen bodyguards. Their assignment is to keep you in all your ways. Even in chaos, danger, or confusion, angelic covering is real and active.
+
+*Ancient Biblical Example:* Daniel was unharmed in the lions’ den because an angel shut the lions’ mouths.
+
+*Testimony:* A man involved in a highway crash was pulled out of a burning car by a stranger who vanished instantly—witnesses identified him as angelic.
+
+*Prayer:* Lord, release angels to protect me in every journey, assignment, and environment. Cover my home and family with angelic fire. Amen.
+
+*Declarations:*
+- No harm shall come near me.
+- Angels bear me up in all my ways.
+- I walk securely under supernatural protection.
+
+
+
+
+*🔰 STRATEGIC LEVEL PRAYER JOURNAL*
+
+*CALLING THINGS THAT BE NOT (Romans 4:17)*
+
+*🗓 WEDNESDAY, DECEMBER 17, 2025*
+
+*Title:* Flames of Fire
+
+*Scripture:* Hebrews 1:7
+
+*Expanded Reflection:* God makes His ministers flames of fire. Fire consumes darkness, purifies, and energizes. A believer aflame cannot be stopped. This fire is spiritual intensity, heavenly empowerment, and divine passion. When fire rests on a person, their words carry weight, their presence carries authority, and miracles follow them.
+
+*Ancient Biblical Example:* Seraphim in Isaiah 6 carried coals of fire from the altar.
+
+*Testimony:* During a prayer meeting, a brother was overwhelmed with divine fire. His longstanding addiction broke instantly, never to return.
+
+*Prayer:* Lord, make me a flame of fire. Ignite my spirit with holy intensity and power. Let fire burn away weakness and ignite gifts. Amen.
+
+*Declarations:*
+- I am a flame of fire in God’s hands.
+- Divine fire burns in and through me.
+- My presence carries power and spiritual authority.
+
+
+
+
+*🔰 STRATEGIC LEVEL PRAYER JOURNAL*
+
+*CALLING THINGS THAT BE NOT (Romans 4:17)*
+
+*🗓 THURSDAY, DECEMBER 18, 2025*
+
+*Title:* Fresh Fire for a New Season
+
+*Scripture:* Acts 2:1–3
+
+*Expanded Reflection:* Every new season requires new fire. Yesterday’s anointing cannot conquer today’s battles. Fresh fire produces fresh miracles, revelations, strategies, and breakthroughs. When the Holy Spirit comes with fire, stagnation ends, boldness rises, and supernatural activity increases.
+
+*Ancient Biblical Example:* Tongues of fire sat on the 120 disciples, shifting them into global impact.
+
+*Testimony:* A pastor prayed for fresh fire after months of dryness. Revival broke out, miracles increased, and the church transformed.
+
+*Prayer:* Father, release fresh fire upon me. Revive every cold place. Ignite a new dimension of spiritual power and hunger. Amen.
+
+*Declarations:*
+- Fresh fire falls upon me today.
+- I enter a new realm of spiritual strength.
+- My life is a carrier of revival.
+
+
+
+
+*🔰 STRATEGIC LEVEL PRAYER JOURNAL*
+
+*CALLING THINGS THAT BE NOT (Romans 4:17)*
+
+*🗓 FRIDAY, DECEMBER 19, 2025*
+
+*Title:* Releasing the Heir Force
+
+*Scripture:* Romans 8:17
+
+*Expanded Reflection:* As heirs of God, we have rights, inheritance, and spiritual backing. Angels enforce our covenant inheritance. When you speak the Word, the heir force moves. They respond to commands aligned with Scripture. You are spiritually entitled to protection, provision, healing, and deliverance.
+
+*Ancient Biblical Example:* Jacob encountered angels at Mahanaim—angelic activity surrounding an heir of the covenant.
+
+*Testimony:* A woman traveling alone sensed danger. She declared Psalm 91 aloud. Suddenly, armed men ran in fear as though surrounded—angelic forces intervened.
+
+*Prayer:* Lord, teach me to cooperate with the heir force. Let angels enforce every covenant promise in my life. Amen.
+
+*Declarations:*
+- I am an heir of God and joint-heir with Christ.
+- Angels enforce my inheritance.
+- My covenant rights manifest daily.
+
+
+
+
+*🔰 STRATEGIC LEVEL PRAYER JOURNAL*
+
+*CALLING THINGS THAT BE NOT (Romans 4:17)*
+
+*🗓 SATURDAY, DECEMBER 20, 2025*
+
+*Title:* Angels and Your Destiny Scroll
+
+*Scripture:* Luke 1:13
+
+*Expanded Reflection:* Every person carries a destiny scroll—your divine assignment. Angels are briefed concerning your purpose. They orchestrate events, connections, timing, and opportunities to push you into destiny. Destiny is not accidental; it is assisted.
+
+*Ancient Biblical Example:* Gabriel announced John’s purpose before his parents conceived him. Angels were fully aware of his prophetic assignment.
+
+*Testimony:* A man unsure of his calling prayed for clarity. In a dream, an angel showed him his assignment. Within months, doors aligned with the vision opened.
+
+*Prayer:* Father, activate every angel assigned to my destiny. Let my steps align with the divine scroll written for me. Amen.
+
+*Declarations:*
+- My destiny is unfolding under divine supervision.
+- Angelic guidance orders my steps.
+- I step boldly into my God-given assignment.
+
+
+
+
+*🔰 STRATEGIC LEVEL PRAYER JOURNAL*
+
+*CALLING THINGS THAT BE NOT (Romans 4:17)*
+
+*🗓 SUNDAY, DECEMBER 21, 2025*
+
+*Title:* Focus—Do Not Be Distracted
+
+*Scripture:* 2 Kings 2:9–12
+
+*Expanded Reflection:* The enemy does not fear your prayer life—he fears your focus. Elijah was taken up in supernatural fashion, creating noise, movement, and dramatic distraction. Yet Elisha refused to look at the spectacle. He understood that spiritual power flows only to those who keep their eyes on what Heaven is doing, not on what earth is shaking.
+
+Your destiny requires strict concentration. Many lose impartation because they are distracted by emotions, offense, social media, people’s opinions, or unnecessary battles. Miracles manifest in the life of the focused. Focus turns the ordinary man into a carrier of double portions.
+
+*Ancient Biblical Example:* Elisha ignored every whirlwind and fiery chariot — that focus qualified him for double grace.
+
+*Testimony:* A minister struggled for years without impact. When he turned off distractions for 14 days and focused only on God’s Word, his ministry exploded with miracles immediately after — cancers healed, blind eyes opened.
+
+*Prayer:* Lord, grant me the grace to silence distractions. Fix my eyes on Your assignment and not the noise around me. Amen.
+
+*Declarations:*
+- I am focused, steady, and spiritually alert.
+- No distraction will steal my mantle.
+- I receive double portion insight, power, and grace.
+
+
+
+
+*🔰 STRATEGIC LEVEL PRAYER JOURNAL*
+
+*CALLING THINGS THAT BE NOT (Romans 4:17)*
+
+*🗓 MONDAY, DECEMBER 22, 2025*
+
+*Title:* Guarding Your Heart From Distraction
+
+*Scripture:* Mark 4:18–19
+
+*Expanded Reflection:* The Word can be choked—not by Satan—but by distractions. Jesus listed them clearly: cares of life, deceitfulness of riches, desires for other things. These distractions operate subtly and silently. They choke spiritual growth like weeds around a plant.
+
+You must guard your inner environment like a garden. The Holy Spirit plants seeds, but you must defend them from suffocating weeds.
+
+*Ancient Biblical Example:* Martha’s busyness choked her sensitivity; Mary’s stillness birthed revelation.
+
+*Testimony:* A woman always overwhelmed by pressure dedicated 1 hour daily to quiet devotion. Anxiety left, clarity returned, and long-awaited financial favor broke open.
+
+*Prayer:* Holy Spirit, uproot every distraction choking my spiritual growth. Give me the discipline to protect my heart. Amen.
+
+*Declarations:*
+- My heart is good ground.
+- Distractions lose their power over me.
+- I yield fruit in abundance.
+
+
+
+
+*🔰 STRATEGIC LEVEL PRAYER JOURNAL*
+
+*CALLING THINGS THAT BE NOT (Romans 4:17)*
+
+*🗓 TUESDAY, DECEMBER 23, 2025*
+
+*Title:* Become Good Ground
+
+*Scripture:* Mark 4:20
+
+*Expanded Reflection:* Good ground is not a gift—it is a choice. Your heart’s condition determines your miracle harvest. The Word is always potent; the question is: Is the ground ready?
+
+Good ground is soft (teachable), deep (committed), clean (free from bitterness), and protected (free from distraction). Becoming good ground guarantees results in prayer, prophecy, giving, declarations, and destiny.
+
+*Ancient Biblical Example:* David treasured God’s Word and became unstoppable in every assignment given to him.
+
+*Testimony:* A businessman who struggled for years transformed his life when he began journaling scripture daily. His heart became fertile, and within months his business tripled supernaturally.
+
+*Prayer:* Lord, soften my heart and make me fertile soil for Your Word. Let my life be a harvest field of miracles. Amen.
+
+*Declarations:*
+- My heart receives the Word with joy and obedience.
+- I produce thirtyfold, sixtyfold, and hundredfold results.
+- The Word works mightily in me.
+
+
+
+
+*🔰 STRATEGIC LEVEL PRAYER JOURNAL*
+
+*CALLING THINGS THAT BE NOT (Romans 4:17)*
+
+*🗓 WEDNESDAY, DECEMBER 24, 2025*
+
+*Title:* Angelic Help in Spiritual Warfare
+
+*Scripture:* Acts 27:23
+
+*Expanded Reflection:* In spiritual storms, God deploys angels. Paul faced a deadly storm and shipwreck, yet an angel stood beside him, offering heavenly intelligence and courage.
+
+Angels are active participants in your battles. You may not see them, but they are enforcing victory, frustrating demonic strategies, and strengthening your spirit.
+
+*Ancient Biblical Example:* An angel strengthened Paul in the midst of a violent sea storm.
+
+*Testimony:* A woman under severe midnight demonic attack suddenly saw a bright figure stand beside her bed. Instantly, the paralysis broke, and she was completely delivered.
+
+*Prayer:* Lord, release angels into every battle connected to my destiny. Let divine help secure my victory. Amen.
+
+*Declarations:*
+- I never fight alone.
+- Angels war on my behalf.
+- Every storm turns into testimony.
+
+
+
+
+*🔰 STRATEGIC LEVEL PRAYER JOURNAL*
+
+*CALLING THINGS THAT BE NOT (Romans 4:17)*
+
+*🗓 THURSDAY, DECEMBER 25, 2025*
+
+*Title:* Heaven’s Intervention in Time of Need
+
+*Scripture:* Matthew 1:20
+
+*Expanded Reflection:* Christmas is the celebration of divine intervention. When Joseph was confused, anxious, and unsure, heaven sent an angel with direction. God still intervenes today. Angels still speak, guide, comfort, and redirect.
+
+Heaven is not silent — God sends help precisely when needed.
+
+*Ancient Biblical Example:* Joseph received angelic direction that protected Mary and baby Jesus.
+
+*Testimony:* A family facing a dangerous relocation decision received supernatural guidance in a dream. They obeyed and narrowly avoided disaster.
+
+*Prayer:* Father, intervene in every area of confusion or danger. Let Your voice and angels guide me. Amen.
+
+*Declarations:*
+- Heaven intervenes for me.
+- I walk in divine direction.
+- I will not make destiny-damaging decisions.
+
+
+
+
+*🔰 STRATEGIC LEVEL PRAYER JOURNAL*
+
+*CALLING THINGS THAT BE NOT (Romans 4:17)*
+
+*🗓 FRIDAY, DECEMBER 26, 2025*
+
+*Title:* Calling Forth Restoration
+
+*Scripture:* Joel 2:25
+
+*Expanded Reflection:* Nothing is ever truly lost in God. Whatever the enemy stole—time, money, relationships, opportunities—can be restored. But restoration begins with calling it forth.
+
+The believer must command time, seasons, and blessings to return. God restores beyond what was lost.
+
+*Ancient Biblical Example:* David recovered all at Ziklag after seeking the Lord.
+
+*Testimony:* A man who lost his job and savings began daily restoration declarations. Within months, he got a better-paying job and unexpected financial compensation.
+
+*Prayer:* Lord, breathe life into every lost opportunity. Restore my years, resources, honor, and destiny. Amen.
+
+*Declarations:*
+- I call forth total restoration.
+- My lost years are restored with overflow.
+- No loss is permitted in my life.
+
+
+
+
+*🔰 STRATEGIC LEVEL PRAYER JOURNAL*
+
+*CALLING THINGS THAT BE NOT (Romans 4:17)*
+
+*🗓 SATURDAY, DECEMBER 27, 2025*
+
+*Title:* Speak Life to Dead Situations
+
+*Scripture:* John 11:43–44
+
+*Expanded Reflection:* Jesus did not mourn Lazarus — He called him out. When something dies in your life (dreams, relationships, opportunities, health), the flesh mourns, but the spirit speaks life.
+
+Resurrection responds to voice commands.
+
+*Ancient Biblical Example:* Elijah spoke life to the widow’s dead son and he revived.
+
+*Testimony:* A marriage on the verge of divorce revived after daily life-declarations and counseling guided by the Holy Spirit.
+
+*Prayer:* Lord Jesus, speak life through me. Let every dead area respond to resurrection power. Amen.
+
+*Declarations:*
+- I speak life into every dying situation.
+- Resurrection power flows through my words.
+- Nothing connected to me dies prematurely.
+
+
+
+
+*🔰 STRATEGIC LEVEL PRAYER JOURNAL*
+
+*CALLING THINGS THAT BE NOT (Romans 4:17)*
+
+*🗓 SUNDAY, DECEMBER 28, 2025*
+
+*Title:* Align Your Words With God
+
+*Scripture:* Amos 3:3
+
+*Expanded Reflection:* Your words must harmonize with God’s words for power to flow. Agreement is spiritual alignment. When you say what God says, angels move, the Spirit partners, and heaven backs your declarations.
+
+Mismatched speech creates spiritual disconnection. Agreement births miracles.
+
+*Ancient Biblical Example:* Joshua spoke in agreement with God and the walls of Jericho collapsed.
+
+*Testimony:* A man who always spoke negatively shifted to daily Scripture-based affirmations. Depression lifted and supernatural breakthroughs followed.
+
+*Prayer:* Lord, correct my speech. Let my mouth agree with Your voice always. Amen.
+
+*Declarations:*
+- My words agree with heaven.
+- I speak only what God says.
+- My declarations produce miracles.
+
+
+
+
+*🔰 STRATEGIC LEVEL PRAYER JOURNAL*
+
+*CALLING THINGS THAT BE NOT (Romans 4:17)*
+
+*🗓 MONDAY, DECEMBER 29, 2025*
+
+*Title:* Call Forth Your 2026
+
+*Scripture:* Job 22:28
+
+*Expanded Reflection:* A new year does not respond to wishes — it responds to decrees. You must speak into the next year before you enter it. Command January to December to obey God’s plan for you. Speak favor, open doors, protection, increase, and divine speed into the coming year.
+
+*Ancient Biblical Example:* Isaac blessed Jacob prophetically and shaped his entire future.
+
+*Testimony:* A woman declared 12 prophetic blessings for her new year. Each month, specific breakthroughs aligned exactly as spoken.
+
+*Prayer:* Father, I decree supernatural alignment, favor, and progress for 2026. Go before me and prepare greatness. Amen.
+
+*Declarations:*
+- 2026 obeys my prophetic decrees.
+- I step into a year of glory, favor, and divine speed.
+- Every month yields prosperity and peace.
+
+
+
+
+*🔰 STRATEGIC LEVEL PRAYER JOURNAL*
+
+*CALLING THINGS THAT BE NOT (Romans 4:17)*
+
+*🗓 TUESDAY, DECEMBER 30, 2025*
+
+*Title:* Strengthen Your Faith Engine
+
+*Scripture:* Romans 4:20
+
+*Expanded Reflection:* Praise strengthens faith. Abraham grew strong in faith by giving glory to God. Gratitude turbocharges belief.
+
+Praising God when the manifestation hasn’t arrived is the highest form of faith. Praise breaks delay, confusion, and weakness.
+
+*Ancient Biblical Example:* Jehoshaphat won a war through praise, not weapons.
+
+*Testimony:* A man facing financial collapse began midnight praise sessions. Within weeks, supernatural assistance cleared his debts.
+
+*Prayer:* Lord, strengthen my faith through praise. Let thanksgiving overflow from me daily. Amen.
+
+*Declarations:*
+- My faith is strong and unstoppable.
+- Praise opens new realms of breakout.
+- I will never stagger at God’s promises.
+
+
+
+
+*🔰 STRATEGIC LEVEL PRAYER JOURNAL*
+
+*CALLING THINGS THAT BE NOT (Romans 4:17)*
+
+*🗓 WEDNESDAY, DECEMBER 31, 2025*
+
+*Title:* Declare a New Beginning
+
+*Scripture:* Revelation 21:5
+
+*Expanded Reflection:* God specializes in new beginnings. This final day is the perfect moment to declare freshness into every area of your life. Before the year ends, speak over your destiny:
+
+New strength.
+New fire.
+New opportunities.
+New favor.
+New visions.
+New helpers.
+The new year is born through prophetic decree.
+
+*Ancient Biblical Example:* God spoke light into darkness — the first declaration that birthed a new world.
+
+*Testimony:* A woman who ended her year in tears declared “All things new” repeatedly. Within the first quarter of the next year, she received a new home, new job, and new joy.
+
+*Prayer:* Father, thank You for 2025. As I step into 2026, I decree new beginnings in every area of my life. Make all things new. Amen.
+
+*Declarations:*
+- I cross into 2026 with victory.
+- Everything becomes new by the power of God.
+- I enter the new year with open heavens and angelic support.
+`;
+
+        const devotionalList = document.getElementById('devotionalList');
+        const currentDateSpan = document.getElementById('currentDate');
+
+        // Initial Setup
+        const now = new Date();
+        const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+        currentDateSpan.textContent = now.toLocaleDateString('en-US', options);
+
+        function cleanText(text) {
+            // Remove the specific moon phase block
+            let cleaned = text.replace(/⟨[\s\S]*?⟩/g, '');
+            // Remove the backslashes that were added before asterisks
+            cleaned = cleaned.replace(/\\\*/g, '*');
+             // Remove extra backslashes before hyphens if any (some parsers do this)
+            cleaned = cleaned.replace(/\\-/g, '-');
+            return cleaned;
+        }
+
+        function parseDevotionals(text) {
+            const clean = cleanText(text);
+            // Split by the specific header used for each day
+            // We look for "*🔰 STRATEGIC LEVEL PRAYER JOURNAL*"
+            const parts = clean.split('*🔰 STRATEGIC LEVEL PRAYER JOURNAL*');
+            
+            // Filter out empty parts and map to objects
+            return parts.filter(p => p.trim().length > 0).map((part, index) => {
+                const lines = part.trim().split('\n');
+                // Extract Date
+                // Look for line starting with *🗓
+                const dateLine = lines.find(l => l.includes('*🗓'));
+                let dateDisplay = `Day ${index + 1}`;
+                if (dateLine) {
+                    dateDisplay = dateLine.replace(/\*/g, '').replace('🗓', '').trim();
+                }
+
+                return {
+                    id: index + 1,
+                    date: dateDisplay,
+                    fullText: `*🔰 STRATEGIC LEVEL PRAYER JOURNAL*\n\n${part.trim()}`
+                };
+            });
+        }
+
+        function renderDevotionals() {
+            const devotionals = parseDevotionals(rawDevotionalText);
+
+            devotionals.forEach(dev => {
+                const card = document.createElement('div');
+                card.className = "bg-white p-6 rounded-lg shadow-sm border border-gray-200 hover:shadow-md transition-shadow";
+                
+                // Create preview text (first few lines)
+                const previewLines = dev.fullText.split('\n').slice(0, 6).join('\n');
+
+                card.innerHTML = `
+                    <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                        <div class="flex-1">
+                            <h2 class="text-lg font-bold text-gray-800">${dev.date}</h2>
+                            <div class="text-sm text-gray-500 mt-1 whitespace-pre-wrap line-clamp-2">${previewLines}...</div>
+                        </div>
+                        <div class="flex gap-2 w-full md:w-auto">
+                            <button onclick="copyToClipboard(${dev.id})" class="flex-1 md:flex-none px-4 py-2 bg-gray-100 text-gray-700 rounded hover:bg-gray-200 font-medium transition-colors text-sm">
+                                <i class="fas fa-copy mr-2"></i>Copy
+                            </button>
+                            <button onclick="shareToWhatsApp(${dev.id})" class="flex-1 md:flex-none px-4 py-2 whatsapp-green text-white rounded hover:bg-opacity-90 font-medium transition-colors text-sm flex items-center justify-center">
+                                <i class="fab fa-whatsapp mr-2"></i>Send on WhatsApp
+                            </button>
+                        </div>
+                    </div>
+                `;
+                devotionalList.appendChild(card);
+            });
+        }
+
+        // Store parsed data globally for button access
+        let parsedData = [];
+
+        function init() {
+            parsedData = parseDevotionals(rawDevotionalText);
+            renderDevotionals();
+        }
+
+        window.shareToWhatsApp = function(id) {
+            const item = parsedData.find(d => d.id === id);
+            if (!item) return;
+            
+            // Encode the text for URL
+            const encodedText = encodeURIComponent(item.fullText);
+            const url = `https://wa.me/?text=${encodedText}`;
+            
+            // Open in new tab
+            window.open(url, '_blank');
+        }
+
+        window.copyToClipboard = function(id) {
+            const item = parsedData.find(d => d.id === id);
+            if (!item) return;
+
+            // Fallback for iframe environments where navigator.clipboard might be blocked
+            const textArea = document.createElement("textarea");
+            textArea.value = item.fullText;
+            
+            // Ensure it's not visible but part of the DOM
+            textArea.style.position = "fixed";
+            textArea.style.left = "-9999px";
+            textArea.style.top = "0";
+            document.body.appendChild(textArea);
+            
+            textArea.focus();
+            textArea.select();
+
+            try {
+                const successful = document.execCommand('copy');
+                if (successful) {
+                    alert('Copied to clipboard!');
+                } else {
+                    console.error('Fallback: Copying text command was unsuccessful');
+                    alert('Unable to copy automatically. Please select text manually.');
+                }
+            } catch (err) {
+                console.error('Fallback: Oops, unable to copy', err);
+                alert('Unable to copy automatically. Please select text manually.');
+            }
+
+            document.body.removeChild(textArea);
+        }
+
+        init();
+    </script>
+</body>
+</html>
