@@ -89,12 +89,79 @@
         /* No today */
         .no-today{text-align:center;padding:24px;background:var(--card);border-radius:var(--radius);margin-bottom:24px;color:var(--muted);font-size:.9rem;box-shadow:var(--shadow);}
 
+        /* Read button */
+        .btn-read{display:flex;align-items:center;gap:6px;background:var(--navy);color:#fff;border:none;border-radius:8px;padding:8px 14px;font-family:inherit;font-size:.8rem;font-weight:600;cursor:pointer;transition:all .2s;white-space:nowrap;}
+        .btn-read:hover{background:var(--navy2);opacity:.85;}
+        .btn-read-hero{flex:1;min-width:140px;display:flex;align-items:center;justify-content:center;gap:8px;background:rgba(255,255,255,.1);color:#fff;border:1.5px solid rgba(255,255,255,.2);border-radius:10px;padding:12px 20px;font-family:inherit;font-size:.92rem;font-weight:700;cursor:pointer;transition:all .2s;}
+        .btn-read-hero:hover{background:rgba(255,255,255,.18);transform:translateY(-1px);}
+
+        /* Modal overlay */
+        #readModal{position:fixed;inset:0;z-index:10000;display:flex;align-items:flex-end;justify-content:center;opacity:0;pointer-events:none;transition:opacity .3s;}
+        #readModal.open{opacity:1;pointer-events:all;}
+        .modal-backdrop{position:absolute;inset:0;background:rgba(10,15,28,.65);backdrop-filter:blur(4px);}
+        .modal-sheet{position:relative;width:100%;max-width:720px;max-height:92vh;background:var(--bg);border-radius:24px 24px 0 0;overflow:hidden;display:flex;flex-direction:column;transform:translateY(60px);transition:transform .35s cubic-bezier(.22,.68,0,1.2);}
+        #readModal.open .modal-sheet{transform:translateY(0);}
+        .modal-topbar{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;background:var(--navy);flex-shrink:0;}
+        .modal-topbar-title{color:#94A3B8;font-size:.8rem;font-weight:600;letter-spacing:.06em;}
+        .modal-close{background:rgba(255,255,255,.1);border:none;color:#fff;width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:1rem;display:flex;align-items:center;justify-content:center;transition:background .2s;}
+        .modal-close:hover{background:rgba(255,255,255,.2);}
+        .modal-body{overflow-y:auto;padding:24px 20px 40px;display:flex;flex-direction:column;gap:20px;}
+
+        /* Reading sections */
+        .read-hero{background:linear-gradient(135deg,var(--navy),var(--navy2));border-radius:16px;padding:24px;position:relative;overflow:hidden;}
+        .read-hero::before{content:'';position:absolute;bottom:-30px;right:-30px;width:120px;height:120px;background:radial-gradient(circle,rgba(16,185,129,.2) 0%,transparent 70%);border-radius:50%;}
+        .read-date-pill{display:inline-block;background:rgba(16,185,129,.15);border:1px solid rgba(16,185,129,.3);color:var(--teal);padding:4px 12px;border-radius:999px;font-size:.72rem;font-weight:700;letter-spacing:.06em;margin-bottom:10px;}
+        .read-title{color:#fff;font-size:1.6rem;font-weight:800;letter-spacing:-.03em;line-height:1.2;margin-bottom:8px;}
+        .read-scripture-main{display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
+        .read-scripture-ref{color:var(--teal);font-size:.95rem;font-style:italic;font-weight:600;}
+        .read-bible-links{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px;}
+        .bible-link{display:inline-flex;align-items:center;gap:5px;padding:5px 12px;border-radius:8px;font-size:.75rem;font-weight:700;text-decoration:none;transition:all .2s;}
+        .bible-link.bg{background:#4A90D9;color:#fff;} .bible-link.bg:hover{background:#357abd;}
+        .bible-link.logos{background:#A855F7;color:#fff;} .bible-link.logos:hover{background:#9333ea;}
+        .bible-link.youv{background:#E8432D;color:#fff;} .bible-link.youv:hover{background:#c73825;}
+
+        /* Section block */
+        .section-block{background:var(--card);border-radius:14px;padding:18px 20px;box-shadow:var(--shadow);}
+        .section-label{display:flex;align-items:center;gap:8px;font-size:.72rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;margin-bottom:10px;}
+        .section-label .sl-icon{width:28px;height:28px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:.9rem;flex-shrink:0;}
+        .section-body{font-size:.92rem;line-height:1.75;color:var(--text);}
+
+        /* Scripture list */
+        .scripture-list{display:flex;flex-direction:column;gap:8px;}
+        .scripture-item{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:8px 12px;background:var(--bg);border-radius:10px;border:1px solid var(--border);}
+        .scripture-ref-text{font-style:italic;font-weight:600;font-size:.88rem;color:var(--text);}
+        .scripture-links{display:flex;gap:5px;}
+
+        /* Prayer list */
+        .prayer-list{display:flex;flex-direction:column;gap:10px;}
+        .prayer-item{display:flex;gap:12px;align-items:flex-start;}
+        .prayer-num{width:24px;height:24px;border-radius:50%;background:linear-gradient(135deg,var(--teal),var(--teal2));color:#fff;font-size:.7rem;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;}
+        .prayer-text{font-size:.92rem;line-height:1.6;color:var(--text);}
+
+        /* Activation callout */
+        .activation-block{background:linear-gradient(135deg,rgba(16,185,129,.08),rgba(5,150,105,.05));border:1.5px solid rgba(16,185,129,.25);border-radius:14px;padding:18px 20px;}
+        .activation-label{font-size:.72rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--teal);margin-bottom:8px;display:flex;align-items:center;gap:6px;}
+        .activation-text{font-size:.95rem;font-weight:600;color:var(--text);line-height:1.6;}
+
+        /* Declarations */
+        .decl-block{background:linear-gradient(135deg,var(--navy),var(--navy2));border-radius:14px;padding:18px 20px;}
+        .decl-label{font-size:.72rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--teal);margin-bottom:12px;display:flex;align-items:center;gap:6px;}
+        .decl-item{color:#E2E8F0;font-size:.95rem;font-weight:600;line-height:1.6;padding:6px 0;border-bottom:1px solid rgba(255,255,255,.06);}
+        .decl-item:last-child{border-bottom:none;}
+
+        /* Modal share bar */
+        .modal-share{background:var(--card);border-radius:14px;padding:16px 20px;display:flex;gap:10px;flex-wrap:wrap;}
+        .modal-share .btn-copy-hero,.modal-share .btn-wa-hero{flex:1;min-width:130px;padding:11px 16px;font-size:.85rem;}
+
         @media(max-width:560px){
             .hero-actions{flex-direction:column;}
             .day-card{flex-wrap:wrap;}
             .day-actions{width:100%;}
-            .btn-copy,.btn-wa{flex:1;justify-content:center;}
+            .btn-copy,.btn-wa,.btn-read{flex:1;justify-content:center;}
             .jump-bar{flex-wrap:wrap;}
+            .modal-sheet{max-height:96vh;}
+            .read-title{font-size:1.3rem;}
+            .scripture-item{flex-wrap:wrap;}
         }
     </style>
 </head>
@@ -116,6 +183,18 @@
         <div id="devotionalList"></div>
     </div>
     <div id="toast"><span class="toast-icon"><i class="fas fa-check-circle"></i></span><span id="toastMsg"></span></div>
+
+    <!-- Reading modal -->
+    <div id="readModal">
+        <div class="modal-backdrop" onclick="closeModal()"></div>
+        <div class="modal-sheet">
+            <div class="modal-topbar">
+                <span class="modal-topbar-title">🔰 STRATEGIC PRAYER JOURNAL</span>
+                <button class="modal-close" onclick="closeModal()"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="modal-body" id="modalBody"></div>
+        </div>
+    </div>
 
     <script>
         // The raw text content from the devotional file
@@ -1469,7 +1548,6 @@ Ask God: “Who are You sending me to comfort, sit with, and love?”
         
         let parsedData = [];
 
-        // Week theme labels extracted from journal structure
         const WEEK_THEMES = [
             'Week 1 — The Myth of Happiness',
             'Week 2 — God Meets You in Pain',
@@ -1478,15 +1556,24 @@ Ask God: “Who are You sending me to comfort, sit with, and love?”
             'Week 5 — Hope & Commission'
         ];
 
-        function cleanText(text) {
-            let cleaned = text.replace(/⟨[\s\S]*?⟩/g, '');
-            cleaned = cleaned.replace(/\\\*/g, '*');
-            cleaned = cleaned.replace(/\\-/g, '-');
-            return cleaned;
+        function cleanText(t){
+            return t.replace(/⟨[\s\S]*?⟩/g,'').replace(/\\\*/g,'*').replace(/\\-/g,'-');
+        }
+        function stripMd(s){
+            return (s||'').replace(/\*/g,'').replace(/_/g,'').replace(/⦁/g,'').trim();
         }
 
-        function stripMarkdown(str) {
-            return str.replace(/\*/g, '').replace(/_/g, '').replace(/⦁/g, '•').trim();
+        // Extract items in a bullet section (lines after header until next *Header:* or end)
+        function extractSection(lines, headerPattern) {
+            const idx = lines.findIndex(l => headerPattern.test(l));
+            if (idx < 0) return { text: '', items: [] };
+            const items = [], bodyLines = [];
+            for (let i = idx+1; i < lines.length; i++) {
+                if (/^\*[A-Z]/.test(lines[i]) && lines[i].endsWith(':*')) break;
+                const clean = stripMd(lines[i]);
+                if (clean) { items.push(clean); bodyLines.push(clean); }
+            }
+            return { text: bodyLines.join(' '), items };
         }
 
         function parseDevotionals(text) {
@@ -1495,22 +1582,27 @@ Ask God: “Who are You sending me to comfort, sit with, and love?”
             return parts.filter(p => p.trim().length > 0).map((part, index) => {
                 const lines = part.trim().split('\n').map(l => l.trim()).filter(l => l);
                 const dateLine = lines.find(l => l.includes('*🗓'));
-                let dateDisplay = `Day ${index + 1}`;
-                let dayNum = index + 1;
+                let dateDisplay = `Day ${index+1}`, dayNum = index+1;
                 if (dateLine) {
-                    dateDisplay = stripMarkdown(dateLine.replace('🗓', '').replace(/\*/g, '')).trim();
-                    const m = dateDisplay.match(/(\d+),/);
-                    if (m) dayNum = parseInt(m[1]);
+                    dateDisplay = stripMd(dateLine.replace('🗓','').replace(/\*/g,'')).trim();
+                    const m = dateDisplay.match(/(\d+),/); if (m) dayNum = parseInt(m[1]);
                 }
-                const titleLine = lines.find(l => l.startsWith('*Title:'));
-                const title = titleLine ? stripMarkdown(titleLine.replace('*Title:*','').replace('Title:','')).trim() : '';
-                const scriptLine = lines.find(l => l.startsWith('*Scripture:'));
-                const scripture = scriptLine ? stripMarkdown(scriptLine.replace('*Scripture:*','').replace('Scripture:','')).trim() : '';
-                const reflIdx = lines.findIndex(l => l.includes('Reflection on Scripture'));
-                const reflection = reflIdx >= 0 && lines[reflIdx+1] ? stripMarkdown(lines[reflIdx+1]) : '';
-                // Parse date for today detection
                 const rawDate = dateLine ? dateLine.replace(/\*/g,'').replace('🗓','').trim() : '';
+                const tl = lines.find(l => l.startsWith('*Title:')); const title = tl ? stripMd(tl.replace('*Title:*','').replace('Title:','')).trim() : '';
+                const sl = lines.find(l => l.startsWith('*Scripture:')); const scripture = sl ? stripMd(sl.replace('*Scripture:*','').replace('Scripture:','')).trim() : '';
+                const reflIdx = lines.findIndex(l => /\*Reflection on Scripture/.test(l));
+                const reflection = reflIdx >= 0 && lines[reflIdx+1] ? stripMd(lines[reflIdx+1]) : '';
+                // Deep sections
+                const ancient = extractSection(lines, /\*Ancient Biblical Precedent/);
+                const testimony = extractSection(lines, /\*Testimony/);
+                const scriptures = extractSection(lines, /\*Scriptures:/);
+                const prayers = extractSection(lines, /\*Strategic Prayers/);
+                const activation = extractSection(lines, /\*Activation and Manifestation/);
+                const declarations = extractSection(lines, /\*Declarations/);
                 return { id: index+1, dayNum, date: dateDisplay, rawDate, title, scripture, reflection,
+                    ancient: ancient.text, testimony: testimony.text,
+                    scriptures: scriptures.items, prayers: prayers.items,
+                    activation: activation.text, declarations: declarations.items,
                     fullText: `*🔰 STRATEGIC LEVEL PRAYER JOURNAL*\n\n${part.trim()}` };
             });
         }
@@ -1519,28 +1611,19 @@ Ask God: “Who are You sending me to comfort, sit with, and love?”
             const now = new Date();
             const months = ['JANUARY','FEBRUARY','MARCH','APRIL','MAY','JUNE','JULY','AUGUST','SEPTEMBER','OCTOBER','NOVEMBER','DECEMBER'];
             const rd = dev.rawDate.toUpperCase();
-            const m = rd.match(/(\d+),\s*(\d+)/);
-            if (!m) return false;
-            const monthName = months[now.getMonth()];
-            return rd.includes(monthName) && parseInt(m[1]) === now.getDate() && parseInt(m[2]) === now.getFullYear();
+            const m = rd.match(/(\d+),\s*(\d+)/); if (!m) return false;
+            return rd.includes(months[now.getMonth()]) && parseInt(m[1])===now.getDate() && parseInt(m[2])===now.getFullYear();
         }
 
         function showToast(msg) {
             const t = document.getElementById('toast');
             document.getElementById('toastMsg').textContent = msg;
-            t.classList.add('show');
-            setTimeout(() => t.classList.remove('show'), 2800);
+            t.classList.add('show'); setTimeout(() => t.classList.remove('show'), 2800);
         }
 
-        window.copyToClipboard = function(id, fromHero) {
-            const item = parsedData.find(d => d.id === id);
-            if (!item) return;
-            const copy = (txt) => {
-                if (navigator.clipboard && navigator.clipboard.writeText) {
-                    navigator.clipboard.writeText(txt).then(() => showToast('✅ Copied! Ready to paste on WhatsApp.')).catch(() => fallbackCopy(txt));
-                } else { fallbackCopy(txt); }
-            };
-            const fallbackCopy = (txt) => {
+        window.copyToClipboard = function(id) {
+            const item = parsedData.find(d => d.id === id); if (!item) return;
+            const fallback = txt => {
                 const ta = document.createElement('textarea');
                 ta.value = txt; ta.style.cssText='position:fixed;left:-9999px;top:0';
                 document.body.appendChild(ta); ta.focus(); ta.select();
@@ -1548,12 +1631,13 @@ Ask God: “Who are You sending me to comfort, sit with, and love?”
                 catch(e) { showToast('Could not copy — please select manually.'); }
                 document.body.removeChild(ta);
             };
-            copy(item.fullText);
+            if (navigator.clipboard && navigator.clipboard.writeText)
+                navigator.clipboard.writeText(item.fullText).then(()=>showToast('✅ Copied! Ready to paste on WhatsApp.')).catch(()=>fallback(item.fullText));
+            else fallback(item.fullText);
         };
 
         window.shareToWhatsApp = function(id) {
-            const item = parsedData.find(d => d.id === id);
-            if (!item) return;
+            const item = parsedData.find(d => d.id === id); if (!item) return;
             window.open(`https://wa.me/?text=${encodeURIComponent(item.fullText)}`, '_blank');
         };
 
@@ -1562,18 +1646,120 @@ Ask God: “Who are You sending me to comfort, sit with, and love?”
         };
 
         window.jumpToDay = function() {
-            const sel = document.getElementById('dayJump');
-            const id = sel.value;
+            const id = document.getElementById('dayJump').value;
             const el = document.getElementById('card-'+id);
-            if (el) { el.scrollIntoView({behavior:'smooth',block:'center'}); el.style.outline='2px solid var(--teal)'; setTimeout(()=>el.style.outline='',1500); }
+            if (!el) return;
+            // Ensure the parent week-section is open
+            const weekSec = el.closest('.week-section');
+            if (weekSec && !weekSec.classList.contains('open')) weekSec.classList.add('open');
+            setTimeout(() => {
+                el.scrollIntoView({behavior:'smooth', block:'center'});
+                el.style.outline = '2.5px solid var(--teal)';
+                setTimeout(() => el.style.outline = '', 1600);
+            }, 80);
         };
+
+        // Bible link helpers
+        function bgLink(ref) { return `https://www.biblegateway.com/passage/?search=${encodeURIComponent(ref)}&version=NIV`; }
+        function logosLink(ref) { return `https://ref.ly/${encodeURIComponent(ref)}`; }
+        function youvLink(ref) { return `https://www.bible.com/search/bible?q=${encodeURIComponent(ref)}`; }
+
+        function bibleLinksHTML(ref) {
+            if (!ref) return '';
+            return `<div class="read-bible-links">
+                <a class="bible-link bg" href="${bgLink(ref)}" target="_blank"><i class="fas fa-book-open"></i> Bible Gateway</a>
+                <a class="bible-link logos" href="${logosLink(ref)}" target="_blank"><i class="fas fa-cross"></i> Logos</a>
+                <a class="bible-link youv" href="${youvLink(ref)}" target="_blank"><i class="fas fa-bible"></i> YouVersion</a>
+            </div>`;
+        }
+
+        function scriptureItemHTML(ref) {
+            return `<div class="scripture-item">
+                <span class="scripture-ref-text">${ref}</span>
+                <div class="scripture-links">
+                    <a class="bible-link bg" href="${bgLink(ref)}" target="_blank" style="padding:4px 8px;font-size:.68rem;">BG</a>
+                    <a class="bible-link logos" href="${logosLink(ref)}" target="_blank" style="padding:4px 8px;font-size:.68rem;">Logos</a>
+                    <a class="bible-link youv" href="${youvLink(ref)}" target="_blank" style="padding:4px 8px;font-size:.68rem;">YV</a>
+                </div>
+            </div>`;
+        }
+
+        function sectionBlock(icon, iconBg, color, label, content) {
+            if (!content) return '';
+            return `<div class="section-block">
+                <div class="section-label" style="color:${color}">
+                    <span class="sl-icon" style="background:${iconBg}">${icon}</span>${label}
+                </div>
+                <div class="section-body">${content}</div>
+            </div>`;
+        }
+
+        window.openModal = function(id) {
+            const dev = parsedData.find(d => d.id === id); if (!dev) return;
+            const body = document.getElementById('modalBody');
+
+            // Prayers HTML
+            const prayersHTML = dev.prayers.length
+                ? `<div class="prayer-list">${dev.prayers.map((p,i)=>`<div class="prayer-item"><span class="prayer-num">${i+1}</span><span class="prayer-text">${p}</span></div>`).join('')}</div>` : '';
+
+            // Scriptures list HTML
+            const scripturesHTML = dev.scriptures.length
+                ? `<div class="scripture-list">${dev.scriptures.map(s=>scriptureItemHTML(s)).join('')}</div>` : '';
+
+            // Declarations HTML
+            const declHTML = dev.declarations.length
+                ? dev.declarations.map(d=>`<div class="decl-item">${d}</div>`).join('') : '';
+
+            body.innerHTML = `
+                <div class="read-hero">
+                    <div class="read-date-pill">📅 ${dev.date}</div>
+                    <div class="read-title">${dev.title || 'Devotional'}</div>
+                    ${dev.scripture ? `<div class="read-scripture-main"><span class="read-scripture-ref">📜 ${dev.scripture}</span></div>${bibleLinksHTML(dev.scripture)}` : ''}
+                </div>
+
+                ${sectionBlock('📖','rgba(59,130,246,.15)','#3B82F6','Reflection on Scripture', dev.reflection)}
+                ${dev.ancient ? sectionBlock('🏛','rgba(245,158,11,.15)','#F59E0B','Ancient Biblical Precedent', dev.ancient) : ''}
+                ${dev.testimony ? sectionBlock('🗣','rgba(168,85,247,.15)','#A855F7','Testimony', dev.testimony) : ''}
+
+                ${dev.scriptures.length ? `<div class="section-block">
+                    <div class="section-label" style="color:#10B981"><span class="sl-icon" style="background:rgba(16,185,129,.15)">📚</span>Scripture References</div>
+                    ${scripturesHTML}
+                </div>` : ''}
+
+                ${dev.prayers.length ? `<div class="section-block">
+                    <div class="section-label" style="color:#0EA5E9"><span class="sl-icon" style="background:rgba(14,165,233,.15)">🙏</span>Strategic Prayers</div>
+                    ${prayersHTML}
+                </div>` : ''}
+
+                ${dev.activation ? `<div class="activation-block">
+                    <div class="activation-label">⚡ Activation & Manifestation</div>
+                    <div class="activation-text">${dev.activation}</div>
+                </div>` : ''}
+
+                ${dev.declarations.length ? `<div class="decl-block">
+                    <div class="decl-label">🔥 Declarations</div>
+                    ${declHTML}
+                </div>` : ''}
+
+                <div class="modal-share">
+                    <button class="btn-copy-hero" onclick="copyToClipboard(${dev.id})"><i class="fas fa-copy"></i> Copy for WhatsApp</button>
+                    <button class="btn-wa-hero" onclick="shareToWhatsApp(${dev.id})"><i class="fab fa-whatsapp"></i> Open WhatsApp</button>
+                </div>`;
+
+            document.getElementById('readModal').classList.add('open');
+            document.body.style.overflow = 'hidden';
+        };
+
+        window.closeModal = function() {
+            document.getElementById('readModal').classList.remove('open');
+            document.body.style.overflow = '';
+        };
+
+        document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
 
         function renderHero(dev) {
             const hero = document.getElementById('heroSection');
-            if (!dev) {
-                hero.innerHTML = `<div class="no-today">📅 No devotional found for today. Browse the list below.</div>`;
-                return;
-            }
+            if (!dev) { hero.innerHTML = `<div class="no-today">📅 No devotional for today. Browse the list below.</div>`; return; }
             hero.innerHTML = `
                 <div class="hero-card">
                     <div class="hero-label">📖 Today's Devotional</div>
@@ -1582,30 +1768,19 @@ Ask God: “Who are You sending me to comfort, sit with, and love?”
                     ${dev.scripture ? `<div class="hero-scripture">📜 ${dev.scripture}</div>` : ''}
                     <div class="hero-preview">${dev.reflection || ''}</div>
                     <div class="hero-actions">
-                        <button class="btn-copy-hero" onclick="copyToClipboard(${dev.id},true)">
-                            <i class="fas fa-copy"></i> Copy for WhatsApp
-                        </button>
-                        <button class="btn-wa-hero" onclick="shareToWhatsApp(${dev.id})">
-                            <i class="fab fa-whatsapp"></i> Open WhatsApp
-                        </button>
+                        <button class="btn-read-hero" onclick="openModal(${dev.id})"><i class="fas fa-book-open"></i> Read Today's Devotional</button>
+                        <button class="btn-copy-hero" onclick="copyToClipboard(${dev.id})"><i class="fas fa-copy"></i> Copy for WhatsApp</button>
+                        <button class="btn-wa-hero" onclick="shareToWhatsApp(${dev.id})"><i class="fab fa-whatsapp"></i> WhatsApp</button>
                     </div>
                 </div>`;
         }
 
         function renderList(devs, todayDev) {
             const list = document.getElementById('devotionalList');
-            // Build jump selector
             const sel = document.getElementById('dayJump');
-            devs.forEach(d => {
-                const opt = document.createElement('option');
-                opt.value = d.id; opt.textContent = d.date;
-                sel.appendChild(opt);
-            });
-
-            // Group into weeks of 7
+            devs.forEach(d => { const o = document.createElement('option'); o.value=d.id; o.textContent=d.date; sel.appendChild(o); });
             const weeks = [];
             for (let i=0; i<devs.length; i+=7) weeks.push(devs.slice(i,i+7));
-
             weeks.forEach((week, wi) => {
                 const isCurrentWeek = todayDev && week.some(d => d.id === todayDev.id);
                 const sec = document.createElement('div');
@@ -1614,14 +1789,13 @@ Ask God: “Who are You sending me to comfort, sit with, and love?”
                     <div class="week-header" onclick="toggleWeek(this)">
                         <div class="week-header-left">
                             <span class="week-badge">WEEK ${wi+1}</span>
-                            <span class="week-title">${WEEK_THEMES[wi] || 'Week '+(wi+1)}</span>
+                            <span class="week-title">${WEEK_THEMES[wi]||'Week '+(wi+1)}</span>
                             <span class="week-count">${week.length} days</span>
                         </div>
                         <i class="fas fa-chevron-down week-chevron"></i>
                     </div>
-                    <div class="week-body" id="week-body-${wi}"></div>`;
+                    <div class="week-body"></div>`;
                 list.appendChild(sec);
-
                 const body = sec.querySelector('.week-body');
                 week.forEach(dev => {
                     const today = todayDev && dev.id === todayDev.id;
@@ -1632,16 +1806,13 @@ Ask God: “Who are You sending me to comfort, sit with, and love?”
                         <div class="day-num">${dev.dayNum}</div>
                         <div class="day-info">
                             <div class="day-date">${dev.date}</div>
-                            <div class="day-title">${dev.title || 'Devotional'}</div>
+                            <div class="day-title">${dev.title||'Devotional'}</div>
                             ${dev.scripture ? `<div class="day-scripture">${dev.scripture}</div>` : ''}
                         </div>
                         <div class="day-actions">
-                            <button class="btn-copy" onclick="copyToClipboard(${dev.id})">
-                                <i class="fas fa-copy"></i> Copy
-                            </button>
-                            <button class="btn-wa" onclick="shareToWhatsApp(${dev.id})">
-                                <i class="fab fa-whatsapp"></i>
-                            </button>
+                            <button class="btn-read" onclick="openModal(${dev.id})"><i class="fas fa-book-open"></i> Read</button>
+                            <button class="btn-copy" onclick="copyToClipboard(${dev.id})"><i class="fas fa-copy"></i> Copy</button>
+                            <button class="btn-wa" onclick="shareToWhatsApp(${dev.id})"><i class="fab fa-whatsapp"></i></button>
                         </div>`;
                     body.appendChild(card);
                 });
@@ -1651,8 +1822,7 @@ Ask God: “Who are You sending me to comfort, sit with, and love?”
         function init() {
             const now = new Date();
             document.getElementById('currentDate').textContent =
-                now.toLocaleDateString('en-US', {weekday:'long',year:'numeric',month:'long',day:'numeric'});
-
+                now.toLocaleDateString('en-US',{weekday:'long',year:'numeric',month:'long',day:'numeric'});
             parsedData = parseDevotionals(rawDevotionalText);
             const todayDev = parsedData.find(isToday) || null;
             renderHero(todayDev);
