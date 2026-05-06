@@ -3,36 +3,119 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Devotional Manager</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Devotional Manager — Strategic Prayer Journal</title>
+    <meta name="description" content="Daily devotional sharing tool for church community managers. One-click WhatsApp sharing.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f0f2f5; }
-        .whatsapp-green { background-color: #25D366; }
-        .whatsapp-green-hover:hover { background-color: #128C7E; }
+        *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+        :root{
+            --navy:#0F172A;--navy2:#1E293B;--teal:#10B981;--teal2:#059669;
+            --wa:#25D366;--wa2:#128C7E;
+            --bg:#F1F5F9;--card:#fff;
+            --text:#1E293B;--muted:#64748B;--border:#E2E8F0;
+            --radius:14px;--shadow:0 2px 16px rgba(15,23,42,.08);
+        }
+        body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;}
+        a{color:inherit;text-decoration:none}
+
+        /* Layout */
+        .app{max-width:700px;margin:0 auto;padding:20px 16px 60px}
+
+        /* Header */
+        .site-header{background:var(--navy);border-radius:var(--radius);padding:28px 24px 24px;margin-bottom:24px;text-align:center;position:relative;overflow:hidden;}
+        .site-header::before{content:'';position:absolute;top:-40px;right:-40px;width:160px;height:160px;background:radial-gradient(circle,rgba(16,185,129,.25) 0%,transparent 70%);border-radius:50%;}
+        .site-header h1{color:#fff;font-size:1.45rem;font-weight:800;letter-spacing:-.02em;}
+        .site-header p{color:#94A3B8;font-size:.85rem;margin-top:4px;}
+        .header-date{display:inline-block;margin-top:12px;background:rgba(16,185,129,.15);border:1px solid rgba(16,185,129,.3);color:var(--teal);padding:5px 14px;border-radius:999px;font-size:.78rem;font-weight:600;letter-spacing:.04em;}
+
+        /* Jump bar */
+        .jump-bar{display:flex;align-items:center;gap:10px;margin-bottom:20px;background:var(--card);border-radius:var(--radius);padding:12px 16px;box-shadow:var(--shadow);}
+        .jump-bar label{font-size:.78rem;font-weight:600;color:var(--muted);white-space:nowrap;}
+        .jump-bar select{flex:1;border:1.5px solid var(--border);border-radius:8px;padding:7px 10px;font-family:inherit;font-size:.85rem;color:var(--text);background:#fff;cursor:pointer;outline:none;}
+        .jump-bar select:focus{border-color:var(--teal);}
+        .jump-btn{background:var(--teal);color:#fff;border:none;border-radius:8px;padding:8px 16px;font-size:.82rem;font-weight:600;cursor:pointer;white-space:nowrap;transition:background .2s;}
+        .jump-btn:hover{background:var(--teal2);}
+
+        /* Hero card (today) */
+        .hero-card{background:linear-gradient(135deg,var(--navy) 0%,var(--navy2) 100%);border-radius:var(--radius);padding:28px 24px;margin-bottom:24px;box-shadow:0 8px 32px rgba(15,23,42,.18);position:relative;overflow:hidden;}
+        .hero-card::after{content:'TODAY';position:absolute;top:16px;right:16px;background:var(--teal);color:#fff;font-size:.6rem;font-weight:800;letter-spacing:.1em;padding:3px 10px;border-radius:999px;}
+        .hero-label{color:var(--teal);font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:6px;}
+        .hero-date{color:#fff;font-size:1.1rem;font-weight:700;margin-bottom:4px;}
+        .hero-title{color:#E2E8F0;font-size:1.5rem;font-weight:800;letter-spacing:-.02em;margin-bottom:6px;}
+        .hero-scripture{color:var(--teal);font-size:.85rem;font-style:italic;margin-bottom:10px;}
+        .hero-preview{color:#94A3B8;font-size:.88rem;line-height:1.6;margin-bottom:20px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;}
+        .hero-actions{display:flex;gap:10px;flex-wrap:wrap;}
+        .btn-copy-hero{flex:1;min-width:160px;display:flex;align-items:center;justify-content:center;gap:8px;background:var(--teal);color:#fff;border:none;border-radius:10px;padding:12px 20px;font-family:inherit;font-size:.92rem;font-weight:700;cursor:pointer;transition:all .2s;}
+        .btn-copy-hero:hover{background:var(--teal2);transform:translateY(-1px);}
+        .btn-wa-hero{flex:1;min-width:160px;display:flex;align-items:center;justify-content:center;gap:8px;background:rgba(37,211,102,.12);color:var(--wa);border:1.5px solid rgba(37,211,102,.3);border-radius:10px;padding:12px 20px;font-family:inherit;font-size:.92rem;font-weight:700;cursor:pointer;transition:all .2s;}
+        .btn-wa-hero:hover{background:var(--wa);color:#fff;border-color:var(--wa);transform:translateY(-1px);}
+
+        /* Week section */
+        .week-section{margin-bottom:12px;}
+        .week-header{display:flex;align-items:center;justify-content:space-between;background:var(--card);border-radius:var(--radius);padding:14px 18px;cursor:pointer;box-shadow:var(--shadow);user-select:none;border:1.5px solid var(--border);transition:border-color .2s;}
+        .week-header:hover{border-color:var(--teal);}
+        .week-header-left{display:flex;align-items:center;gap:12px;}
+        .week-badge{background:linear-gradient(135deg,var(--teal),var(--teal2));color:#fff;font-size:.7rem;font-weight:800;letter-spacing:.05em;padding:4px 10px;border-radius:999px;}
+        .week-title{font-weight:700;font-size:.95rem;color:var(--text);}
+        .week-count{font-size:.78rem;color:var(--muted);margin-left:4px;}
+        .week-chevron{color:var(--muted);font-size:.9rem;transition:transform .25s;}
+        .week-section.open .week-chevron{transform:rotate(180deg);}
+        .week-body{display:none;padding-top:8px;display:flex;flex-direction:column;gap:8px;}
+        .week-section:not(.open) .week-body{display:none;}
+
+        /* Day card */
+        .day-card{background:var(--card);border-radius:12px;padding:16px 18px;box-shadow:var(--shadow);border:1.5px solid var(--border);transition:all .2s;display:flex;align-items:center;gap:14px;}
+        .day-card:hover{border-color:var(--teal);box-shadow:0 4px 20px rgba(16,185,129,.1);}
+        .day-card.is-today{border-color:var(--teal);background:linear-gradient(135deg,rgba(16,185,129,.04),#fff);}
+        .day-num{width:40px;height:40px;border-radius:10px;background:var(--bg);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:1rem;color:var(--muted);flex-shrink:0;}
+        .day-card.is-today .day-num{background:var(--teal);color:#fff;}
+        .day-info{flex:1;min-width:0;}
+        .day-date{font-size:.72rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;}
+        .day-title{font-size:.95rem;font-weight:700;color:var(--text);margin:2px 0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+        .day-scripture{font-size:.78rem;color:var(--teal);font-style:italic;}
+        .day-actions{display:flex;gap:8px;flex-shrink:0;}
+        .btn-copy{display:flex;align-items:center;gap:6px;background:var(--bg);color:var(--text);border:1.5px solid var(--border);border-radius:8px;padding:8px 14px;font-family:inherit;font-size:.8rem;font-weight:600;cursor:pointer;transition:all .2s;white-space:nowrap;}
+        .btn-copy:hover{background:var(--teal);color:#fff;border-color:var(--teal);}
+        .btn-wa{display:flex;align-items:center;gap:6px;background:var(--wa);color:#fff;border:none;border-radius:8px;padding:8px 14px;font-family:inherit;font-size:.8rem;font-weight:600;cursor:pointer;transition:all .2s;white-space:nowrap;}
+        .btn-wa:hover{background:var(--wa2);}
+
+        /* Toast */
+        #toast{position:fixed;bottom:28px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--navy);color:#fff;padding:12px 22px;border-radius:999px;font-size:.88rem;font-weight:600;box-shadow:0 8px 30px rgba(0,0,0,.25);opacity:0;transition:all .3s;pointer-events:none;z-index:9999;display:flex;align-items:center;gap:8px;white-space:nowrap;}
+        #toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+        #toast .toast-icon{color:var(--teal);font-size:1rem;}
+
+        /* No today */
+        .no-today{text-align:center;padding:24px;background:var(--card);border-radius:var(--radius);margin-bottom:24px;color:var(--muted);font-size:.9rem;box-shadow:var(--shadow);}
+
+        @media(max-width:560px){
+            .hero-actions{flex-direction:column;}
+            .day-card{flex-wrap:wrap;}
+            .day-actions{width:100%;}
+            .btn-copy,.btn-wa{flex:1;justify-content:center;}
+            .jump-bar{flex-wrap:wrap;}
+        }
     </style>
 </head>
-<body class="bg-gray-100 min-h-screen">
-
-    <div class="max-w-3xl mx-auto p-4">
-        <!-- Header -->
-        <header class="bg-white rounded-lg shadow-md p-6 mb-6 text-center border-t-4 border-green-500">
-            <h1 class="text-2xl font-bold text-gray-800">Devotional Scheduler</h1>
-            <p class="text-gray-600 mt-2">Automated formatting for WhatsApp sharing</p>
-            <div class="mt-4 text-sm text-gray-500">
-                Current Date: <span id="currentDate" class="font-semibold text-green-600"></span>
-            </div>
+<body>
+    <div class="app">
+        <header class="site-header">
+            <h1>🔰 Strategic Prayer Journal</h1>
+            <p>Consolation in an Age of Despair</p>
+            <div class="header-date" id="currentDate"></div>
         </header>
 
-        <!-- Devotional List -->
-        <div id="devotionalList" class="space-y-6">
-            <!-- Items will be injected here via JS -->
+        <div class="jump-bar">
+            <label for="dayJump">Jump to:</label>
+            <select id="dayJump"></select>
+            <button class="jump-btn" onclick="jumpToDay()"><i class="fas fa-arrow-right"></i> Go</button>
         </div>
 
-        <div class="text-center mt-8 text-gray-500 text-sm pb-8">
-            Generated for automated sharing
-        </div>
+        <div id="heroSection"></div>
+        <div id="devotionalList"></div>
     </div>
+    <div id="toast"><span class="toast-icon"><i class="fas fa-check-circle"></i></span><span id="toastMsg"></span></div>
 
     <script>
         // The raw text content from the devotional file
@@ -1384,133 +1467,200 @@ Ask God: “Who are You sending me to comfort, sit with, and love?”
         
         `;
         
-        const devotionalList = document.getElementById('devotionalList');
-        const currentDateSpan = document.getElementById('currentDate');
+        let parsedData = [];
 
-        // Initial Setup
-        const now = new Date();
-        const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-        currentDateSpan.textContent = now.toLocaleDateString('en-US', options);
+        // Week theme labels extracted from journal structure
+        const WEEK_THEMES = [
+            'Week 1 — The Myth of Happiness',
+            'Week 2 — God Meets You in Pain',
+            'Week 3 — Ministry of Presence',
+            'Week 4 — Redefining Evangelism',
+            'Week 5 — Hope & Commission'
+        ];
 
         function cleanText(text) {
-            // Remove the specific moon phase block
             let cleaned = text.replace(/⟨[\s\S]*?⟩/g, '');
-            // Remove the backslashes that were added before asterisks
             cleaned = cleaned.replace(/\\\*/g, '*');
-             // Remove extra backslashes before hyphens if any (some parsers do this)
             cleaned = cleaned.replace(/\\-/g, '-');
             return cleaned;
         }
 
+        function stripMarkdown(str) {
+            return str.replace(/\*/g, '').replace(/_/g, '').replace(/⦁/g, '•').trim();
+        }
+
         function parseDevotionals(text) {
             const clean = cleanText(text);
-            // Split by the specific header used for each day
-            // We look for "*🔰 STRATEGIC LEVEL PRAYER JOURNAL*"
             const parts = clean.split('*🔰 STRATEGIC LEVEL PRAYER JOURNAL*');
-            
-            // Filter out empty parts and map to objects
             return parts.filter(p => p.trim().length > 0).map((part, index) => {
-                const lines = part.trim().split('\n');
-                // Extract Date
-                // Look for line starting with *🗓
+                const lines = part.trim().split('\n').map(l => l.trim()).filter(l => l);
                 const dateLine = lines.find(l => l.includes('*🗓'));
                 let dateDisplay = `Day ${index + 1}`;
+                let dayNum = index + 1;
                 if (dateLine) {
-                    dateDisplay = dateLine.replace(/\*/g, '').replace('🗓', '').trim();
+                    dateDisplay = stripMarkdown(dateLine.replace('🗓', '').replace(/\*/g, '')).trim();
+                    const m = dateDisplay.match(/(\d+),/);
+                    if (m) dayNum = parseInt(m[1]);
                 }
-
-                return {
-                    id: index + 1,
-                    date: dateDisplay,
-                    fullText: `*🔰 STRATEGIC LEVEL PRAYER JOURNAL*\n\n${part.trim()}`
-                };
+                const titleLine = lines.find(l => l.startsWith('*Title:'));
+                const title = titleLine ? stripMarkdown(titleLine.replace('*Title:*','').replace('Title:','')).trim() : '';
+                const scriptLine = lines.find(l => l.startsWith('*Scripture:'));
+                const scripture = scriptLine ? stripMarkdown(scriptLine.replace('*Scripture:*','').replace('Scripture:','')).trim() : '';
+                const reflIdx = lines.findIndex(l => l.includes('Reflection on Scripture'));
+                const reflection = reflIdx >= 0 && lines[reflIdx+1] ? stripMarkdown(lines[reflIdx+1]) : '';
+                // Parse date for today detection
+                const rawDate = dateLine ? dateLine.replace(/\*/g,'').replace('🗓','').trim() : '';
+                return { id: index+1, dayNum, date: dateDisplay, rawDate, title, scripture, reflection,
+                    fullText: `*🔰 STRATEGIC LEVEL PRAYER JOURNAL*\n\n${part.trim()}` };
             });
         }
 
-        function renderDevotionals() {
-            const devotionals = parseDevotionals(rawDevotionalText);
-
-            devotionals.forEach(dev => {
-                const card = document.createElement('div');
-                card.className = "bg-white p-6 rounded-lg shadow-sm border border-gray-200 hover:shadow-md transition-shadow";
-                
-                // Create preview text (first few lines)
-                const previewLines = dev.fullText.split('\n').slice(0, 6).join('\n');
-
-                card.innerHTML = `
-                    <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
-                        <div class="flex-1">
-                            <h2 class="text-lg font-bold text-gray-800">${dev.date}</h2>
-                            <div class="text-sm text-gray-500 mt-1 whitespace-pre-wrap line-clamp-2">${previewLines}...</div>
-                        </div>
-                        <div class="flex gap-2 w-full md:w-auto">
-                            <button onclick="copyToClipboard(${dev.id})" class="flex-1 md:flex-none px-4 py-2 bg-gray-100 text-gray-700 rounded hover:bg-gray-200 font-medium transition-colors text-sm">
-                                <i class="fas fa-copy mr-2"></i>Copy
-                            </button>
-                            <button onclick="shareToWhatsApp(${dev.id})" class="flex-1 md:flex-none px-4 py-2 whatsapp-green text-white rounded hover:bg-opacity-90 font-medium transition-colors text-sm flex items-center justify-center">
-                                <i class="fab fa-whatsapp mr-2"></i>Send on WhatsApp
-                            </button>
-                        </div>
-                    </div>
-                `;
-                devotionalList.appendChild(card);
-            });
+        function isToday(dev) {
+            const now = new Date();
+            const months = ['JANUARY','FEBRUARY','MARCH','APRIL','MAY','JUNE','JULY','AUGUST','SEPTEMBER','OCTOBER','NOVEMBER','DECEMBER'];
+            const rd = dev.rawDate.toUpperCase();
+            const m = rd.match(/(\d+),\s*(\d+)/);
+            if (!m) return false;
+            const monthName = months[now.getMonth()];
+            return rd.includes(monthName) && parseInt(m[1]) === now.getDate() && parseInt(m[2]) === now.getFullYear();
         }
 
-        // Store parsed data globally for button access
-        let parsedData = [];
-
-        function init() {
-            parsedData = parseDevotionals(rawDevotionalText);
-            renderDevotionals();
+        function showToast(msg) {
+            const t = document.getElementById('toast');
+            document.getElementById('toastMsg').textContent = msg;
+            t.classList.add('show');
+            setTimeout(() => t.classList.remove('show'), 2800);
         }
+
+        window.copyToClipboard = function(id, fromHero) {
+            const item = parsedData.find(d => d.id === id);
+            if (!item) return;
+            const copy = (txt) => {
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    navigator.clipboard.writeText(txt).then(() => showToast('✅ Copied! Ready to paste on WhatsApp.')).catch(() => fallbackCopy(txt));
+                } else { fallbackCopy(txt); }
+            };
+            const fallbackCopy = (txt) => {
+                const ta = document.createElement('textarea');
+                ta.value = txt; ta.style.cssText='position:fixed;left:-9999px;top:0';
+                document.body.appendChild(ta); ta.focus(); ta.select();
+                try { document.execCommand('copy'); showToast('✅ Copied! Ready to paste on WhatsApp.'); }
+                catch(e) { showToast('Could not copy — please select manually.'); }
+                document.body.removeChild(ta);
+            };
+            copy(item.fullText);
+        };
 
         window.shareToWhatsApp = function(id) {
             const item = parsedData.find(d => d.id === id);
             if (!item) return;
-            
-            // Encode the text for URL
-            const encodedText = encodeURIComponent(item.fullText);
-            const url = `https://wa.me/?text=${encodedText}`;
-            
-            // Open in new tab
-            window.open(url, '_blank');
+            window.open(`https://wa.me/?text=${encodeURIComponent(item.fullText)}`, '_blank');
+        };
+
+        window.toggleWeek = function(el) {
+            el.closest('.week-section').classList.toggle('open');
+        };
+
+        window.jumpToDay = function() {
+            const sel = document.getElementById('dayJump');
+            const id = sel.value;
+            const el = document.getElementById('card-'+id);
+            if (el) { el.scrollIntoView({behavior:'smooth',block:'center'}); el.style.outline='2px solid var(--teal)'; setTimeout(()=>el.style.outline='',1500); }
+        };
+
+        function renderHero(dev) {
+            const hero = document.getElementById('heroSection');
+            if (!dev) {
+                hero.innerHTML = `<div class="no-today">📅 No devotional found for today. Browse the list below.</div>`;
+                return;
+            }
+            hero.innerHTML = `
+                <div class="hero-card">
+                    <div class="hero-label">📖 Today's Devotional</div>
+                    <div class="hero-date">${dev.date}</div>
+                    <div class="hero-title">${dev.title || 'Devotional'}</div>
+                    ${dev.scripture ? `<div class="hero-scripture">📜 ${dev.scripture}</div>` : ''}
+                    <div class="hero-preview">${dev.reflection || ''}</div>
+                    <div class="hero-actions">
+                        <button class="btn-copy-hero" onclick="copyToClipboard(${dev.id},true)">
+                            <i class="fas fa-copy"></i> Copy for WhatsApp
+                        </button>
+                        <button class="btn-wa-hero" onclick="shareToWhatsApp(${dev.id})">
+                            <i class="fab fa-whatsapp"></i> Open WhatsApp
+                        </button>
+                    </div>
+                </div>`;
         }
 
-        window.copyToClipboard = function(id) {
-            const item = parsedData.find(d => d.id === id);
-            if (!item) return;
+        function renderList(devs, todayDev) {
+            const list = document.getElementById('devotionalList');
+            // Build jump selector
+            const sel = document.getElementById('dayJump');
+            devs.forEach(d => {
+                const opt = document.createElement('option');
+                opt.value = d.id; opt.textContent = d.date;
+                sel.appendChild(opt);
+            });
 
-            // Fallback for iframe environments where navigator.clipboard might be blocked
-            const textArea = document.createElement("textarea");
-            textArea.value = item.fullText;
-            
-            // Ensure it's not visible but part of the DOM
-            textArea.style.position = "fixed";
-            textArea.style.left = "-9999px";
-            textArea.style.top = "0";
-            document.body.appendChild(textArea);
-            
-            textArea.focus();
-            textArea.select();
+            // Group into weeks of 7
+            const weeks = [];
+            for (let i=0; i<devs.length; i+=7) weeks.push(devs.slice(i,i+7));
 
-            try {
-                const successful = document.execCommand('copy');
-                if (successful) {
-                    alert('Copied to clipboard!');
-                } else {
-                    console.error('Fallback: Copying text command was unsuccessful');
-                    alert('Unable to copy automatically. Please select text manually.');
-                }
-            } catch (err) {
-                console.error('Fallback: Oops, unable to copy', err);
-                alert('Unable to copy automatically. Please select text manually.');
-            }
+            weeks.forEach((week, wi) => {
+                const isCurrentWeek = todayDev && week.some(d => d.id === todayDev.id);
+                const sec = document.createElement('div');
+                sec.className = 'week-section' + (isCurrentWeek ? ' open' : '');
+                sec.innerHTML = `
+                    <div class="week-header" onclick="toggleWeek(this)">
+                        <div class="week-header-left">
+                            <span class="week-badge">WEEK ${wi+1}</span>
+                            <span class="week-title">${WEEK_THEMES[wi] || 'Week '+(wi+1)}</span>
+                            <span class="week-count">${week.length} days</span>
+                        </div>
+                        <i class="fas fa-chevron-down week-chevron"></i>
+                    </div>
+                    <div class="week-body" id="week-body-${wi}"></div>`;
+                list.appendChild(sec);
 
-            document.body.removeChild(textArea);
+                const body = sec.querySelector('.week-body');
+                week.forEach(dev => {
+                    const today = todayDev && dev.id === todayDev.id;
+                    const card = document.createElement('div');
+                    card.className = 'day-card' + (today ? ' is-today' : '');
+                    card.id = 'card-'+dev.id;
+                    card.innerHTML = `
+                        <div class="day-num">${dev.dayNum}</div>
+                        <div class="day-info">
+                            <div class="day-date">${dev.date}</div>
+                            <div class="day-title">${dev.title || 'Devotional'}</div>
+                            ${dev.scripture ? `<div class="day-scripture">${dev.scripture}</div>` : ''}
+                        </div>
+                        <div class="day-actions">
+                            <button class="btn-copy" onclick="copyToClipboard(${dev.id})">
+                                <i class="fas fa-copy"></i> Copy
+                            </button>
+                            <button class="btn-wa" onclick="shareToWhatsApp(${dev.id})">
+                                <i class="fab fa-whatsapp"></i>
+                            </button>
+                        </div>`;
+                    body.appendChild(card);
+                });
+            });
+        }
+
+        function init() {
+            const now = new Date();
+            document.getElementById('currentDate').textContent =
+                now.toLocaleDateString('en-US', {weekday:'long',year:'numeric',month:'long',day:'numeric'});
+
+            parsedData = parseDevotionals(rawDevotionalText);
+            const todayDev = parsedData.find(isToday) || null;
+            renderHero(todayDev);
+            renderList(parsedData, todayDev);
         }
 
         init();
     </script>
 </body>
 </html>
+
