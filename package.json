@@ -1,0 +1,23 @@
+{
+  "name": "strategic-prayer-journal",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "node scripts/build-site.js",
+    "check:content": "node scripts/build-site.js --check",
+    "whatsapp:login": "node scripts/send-whatsapp.js --login",
+    "whatsapp:list-groups": "node scripts/send-whatsapp.js --list-groups",
+    "whatsapp:dry-run": "node scripts/send-whatsapp.js --dry-run",
+    "whatsapp:send-today": "node scripts/send-whatsapp.js --send-today"
+  },
+  "dependencies": {
+    "@whiskeysockets/baileys": "latest",
+    "mammoth": "^1.10.0",
+    "pino": "^9.9.4",
+    "qrcode-terminal": "^0.12.0"
+  }
+}

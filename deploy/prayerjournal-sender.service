@@ -1,0 +1,16 @@
+[Unit]
+Description=Strategic Prayer Journal WhatsApp sender
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+User=prayerjournal
+Group=prayerjournal
+WorkingDirectory=/opt/prayerjournal
+EnvironmentFile=/etc/prayerjournal/sender.env
+ExecStart=/usr/bin/npm run whatsapp:send-today
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ReadWritePaths=/var/lib/prayerjournal

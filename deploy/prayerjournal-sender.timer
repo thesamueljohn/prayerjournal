@@ -1,0 +1,10 @@
+[Unit]
+Description=Send the daily Strategic Prayer Journal at 04:00 WAT
+
+[Timer]
+OnCalendar=*-*-* 04:00:00 Africa/Lagos
+Persistent=true
+Unit=prayerjournal-sender.service
+
+[Install]
+WantedBy=timers.target
