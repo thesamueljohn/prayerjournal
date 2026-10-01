@@ -19,8 +19,8 @@ function normalise(value) {
 }
 
 function titleFromLines(lines, dateMatch) {
-  const inline = normalise(dateMatch[2] || '');
-  if (inline && !/^\d/.test(inline)) return inline;
+  const inline = normalise(dateMatch[3] || '');
+  if (inline && !/^\d/.test(inline) && !/^DAY\s+\d+$/i.test(inline)) return inline;
   return normalise(lines.find((line) =>
     line &&
     !/^(Topic|Frontier Focus|Scripture Reflection|Scripture References|Biblical Examples|Five Reference Scriptures|Testimonies|Strategic Prayers|Personal Prayer|Proclamation|Pray|Prayer|Mission Response|Mission Action|Reflection)\b/i.test(line)
@@ -29,14 +29,17 @@ function titleFromLines(lines, dateMatch) {
 
 function dateMatcher(monthName, year) {
   return new RegExp(
-    `^(?:${WEEKDAYS})?\\s*,?\\s*${monthName}\\s+(\\d{1,2})(?:\\s*,?\\s*${year})?\\s*(?:[–—-]\\s*(.*))?$`,
+    `^(?:${WEEKDAYS})?\\s*,?\\s*(?:(?:${monthName}\\s+(\\d{1,2}))|(\\d{1,2})\\s+${monthName})(?:\\s*,?\\s*${year})?\\s*(?:[–—-]\\s*(.*))?$`,
     'i'
   );
 }
 
 function isRangeHeading(line, match) {
-  return new RegExp(`^${match[0].split(/\s+/)[0]}\\s+\\d+\\s*[–—-]\\s*\\d+`, 'i').test(line)
-    || normalise(match[2] || '').toLowerCase().includes('september');
+  const inline = normalise(match[3] || '');
+  const hasWeekday = new RegExp(`^(?:${WEEKDAYS})`, 'i').test(line);
+  return (!hasWeekday && !inline)
+    || new RegExp(`^${match[0].split(/\s+/)[0]}\\s+\\d+\\s*[–—-]\\s*\\d+`, 'i').test(line)
+    || inline.toLowerCase().includes('september');
 }
 
 export function monthSlug(year, month) {
@@ -73,7 +76,7 @@ export async function loadJournal() {
     const days = starts.map((start, position) => {
       const end = starts[position + 1]?.index ?? lines.length;
       const segment = lines.slice(start.index, end).filter(Boolean);
-      const day = Number(start.match[1]);
+      const day = Number(start.match[1] || start.match[2]);
       const heading = segment.shift();
       const title = titleFromLines(segment, start.match);
       if (segment[0] === title) segment.shift();

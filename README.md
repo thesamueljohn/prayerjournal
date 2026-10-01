@@ -24,7 +24,7 @@ npm.cmd run build
 
 `check:content` must pass before a release. It checks that every calendar day is represented exactly once. `build` writes the deployable static site to `dist/`, which is intentionally ignored by Git.
 
-For the supplied source, the expected result is `Content check passed: 2026-09 (30 days)`.
+For the supplied sources, the expected result is `Content check passed: 2026-09 (30 days), 2026-10 (31 days)`.
 
 ## 3. Add or update a monthly source document
 
