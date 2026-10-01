@@ -11,6 +11,11 @@ document.addEventListener('click', async (event) => {
   const copy = event.target.closest('.copy-link');
   if (share) {
     const data = { title: share.dataset.shareTitle, text: share.dataset.shareText, url: absoluteUrl(share.dataset.shareUrl) };
+    if (share.dataset.shareChannel === 'whatsapp') {
+      const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(data.text)}`;
+      window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+      return;
+    }
     if (navigator.share) await navigator.share(data).catch(() => {});
     else { await navigator.clipboard.writeText(data.url); toast('Link copied.'); }
   }

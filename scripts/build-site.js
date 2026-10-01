@@ -26,6 +26,25 @@ function blockHtml(value) {
   return heading ? `<h2>${escapeHtml(value.replace(/:$/, ''))}</h2>` : `<p>${escapeHtml(value)}</p>`;
 }
 
+function whatsappBlock(value) {
+  const match = value.match(/^(Five Scripture References|Scripture References|Biblical Reflection|Ancient Examples|Strategic Prayer|Strategic Prayers|Proclamations|Personal Prayer|Prayer|Pray|Mission Action|Reflection):\s*(.*)$/i);
+  return match ? `*${match[1]}:*${match[2] ? ` ${match[2]}` : ''}` : value;
+}
+
+function whatsappMessage(month, day, dailyUrl) {
+  return [
+    dailyUrl,
+    '',
+    `*🔰 STRATEGIC LEVEL PRAYER WARFARE, ${month.monthName.toUpperCase()} ${month.year}*`,
+    '',
+    `*${day.title}*`,
+    '',
+    `_${day.date}_`,
+    '',
+    day.blocks.map(whatsappBlock).join('\n\n')
+  ].join('\n').trim();
+}
+
 async function writeSiteFile(relativePath, content) {
   const target = path.join(OUT, relativePath);
   await mkdir(path.dirname(target), { recursive: true });
@@ -57,7 +76,8 @@ for (const month of journal.months) {
 
   for (const day of month.days) {
     const dailyUrl = canonical(pagePath(month.slug, day.day));
-    const body = `${nav(month, day)}<article class="devotional"><p class="eyebrow">Day ${day.day}</p><h1>${escapeHtml(day.title)}</h1><p class="date">${escapeHtml(day.date)}</p><div class="share-row"><button class="share button" data-share-title="${escapeHtml(day.title)}" data-share-text="Read today’s Strategic Prayer Journal: ${escapeHtml(day.title)}" data-share-url="${dailyUrl}">Share this devotional</button><button class="copy-link" data-copy-url="${dailyUrl}">Copy link</button></div><section class="reading">${day.blocks.map(blockHtml).join('')}</section></article>`;
+    const shareText = whatsappMessage(month, day, dailyUrl);
+    const body = `${nav(month, day)}<article class="devotional"><p class="eyebrow">Day ${day.day}</p><h1>${escapeHtml(day.title)}</h1><p class="date">${escapeHtml(day.date)}</p><div class="share-row"><button class="share button" data-share-channel="whatsapp" data-share-title="${escapeHtml(day.title)}" data-share-text="${escapeHtml(shareText)}" data-share-url="${dailyUrl}">Share on WhatsApp</button><button class="copy-link" data-copy-url="${dailyUrl}">Copy link</button></div><section class="reading">${day.blocks.map(blockHtml).join('')}</section></article>`;
     await writeSiteFile(`${month.slug}/${String(day.day).padStart(2, '0')}/index.html`, page({ title: `${day.title} | ${month.title}`, description: `${day.date}: ${day.title}`, canonicalPath: pagePath(month.slug, day.day), body }));
   }
 }
